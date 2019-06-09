@@ -144,7 +144,7 @@ footer {
 
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 640px;
   justify-content: center;
 }
 
@@ -268,7 +268,7 @@ footer {
   content:"";
   /*display: inline-block;*/
   position: absolute;
-  background-image: url(../images/arrow-next.svg);
+  background-image: url(../images/arrows-all.png);
   top: 0;
   bottom: 0;
   vertical-align: middle;
@@ -281,6 +281,9 @@ footer {
   color: #b8adc8;
 }
 
+.link-active:hover:after {
+  background-position: 0 -14px ;
+}
 
 /*------ блок породы -------*/
 
@@ -352,7 +355,8 @@ footer {
   content:"";
   /*display: inline-block;*/
   position: absolute;
-  background-image: url(../images/arrow_next__purple.svg);
+  background-image: url(../images/arrows-all.png);
+  background-position: -20px 0 ;
   top: 10px;
   vertical-align: middle;
   right: -40px;
@@ -362,6 +366,10 @@ footer {
 
 .link-active__c:hover {
   color: #737274;
+}
+
+.link-active__c:hover:after {
+  background-position: -20px -14px ;
 }
 
 .pets-text-wrapper .link-active__c {
