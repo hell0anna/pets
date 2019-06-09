@@ -1,0 +1,615 @@
+/* ==== подключение шрифтов ==== */
+
+/* roboto-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v19-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v19-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-italic - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'),
+       url('../fonts/roboto-v19-latin_cyrillic-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v19-latin_cyrillic-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* fira-sans-500 - latin_cyrillic */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Fira Sans Medium'), local('FiraSans-Medium'),
+       url('../fonts/fira-sans-v9-latin_cyrillic-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/fira-sans-v9-latin_cyrillic-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* fira-sans-500italic - latin_cyrillic */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Fira Sans Medium Italic'), local('FiraSans-MediumItalic'),
+       url('../fonts/fira-sans-v9-latin_cyrillic-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/fira-sans-v9-latin_cyrillic-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* ========== Стили ========== */
+
+html {
+  box-sizing: border-box; 
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; 
+}
+
+body {
+  	margin: 0;
+  	font-family: 'Roboto', sans-serif;
+  	background-color: #ede9e0;
+    font-size: 16px;
+    line-height: 30px;
+    box-sizing: border-box;
+    color: #202020;
+  }
+
+h1 {
+	font-family: 'Fira Sans';
+	font-weight: 500;
+	font-size: 48px;
+  line-height: 60px;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 1024px;
+	margin: auto;	
+}
+
+header {
+	flex: 1;
+}
+
+main {
+	flex: 2;
+}
+
+footer {
+	flex: 1;
+}
+
+/*------- ШАПКА -------*/
+
+/*правильно ли делать шапку с position: absolute;, чтобы она не мешала прибить промо-блок к верху? если нет, как еще можно сделать? больше не придумала*/
+.header {
+  position: absolute;
+  width: 1024px;
+  /*color: #202020;*/
+}
+
+.header-inner{
+  margin: auto;
+  /*padding: 5px 10px;*/
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.menu-nav {
+    margin-left: auto;
+}
+
+.menu-list {
+  display: flex;
+  padding-left: 0;
+}
+
+.menu-item {
+  display: inline-block;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #202020;
+  padding: 3px 15px;
+}
+
+.menu-item a:hover {
+  color: #510fad;
+}
+
+.tel {
+  text-decoration: none;
+  color: #510fad;
+  padding: 3px 0 3px 15px;
+}
+
+.tel:hover {
+  color: #737274;
+}
+
+/*--------- КОНТЕНТ --------*/
+
+.promo-block {
+  background-image: url(../images/promo-dog.png);
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.promo-block-subtitle {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #727173;
+  letter-spacing: 1px;
+
+  border-left: 2px solid #510fad;
+  padding: 5px 10px;
+}
+
+
+/*не понимаю как правильно сделать выравнивание заголовка по первому пункту меню(( promo-block height: 100%; не помогло */
+.promo-block .container, .about-text-wrapper {
+  margin-left: 38%;
+}
+
+#about {
+  background-color: #510fad;
+  color: #fff;
+  padding: 120px 40px;
+  margin: 100px 0;
+
+  position: relative;
+}
+
+#about:before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-image: url(../images/bg-about.svg);
+}
+
+#about:after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-image: url(../images/bg-about.svg);
+  background-position: 0 100%;
+}
+
+
+.about-text-wrapper {
+  max-width: 460px;
+  margin-bottom: 85px;
+}
+
+
+/*почему прищлось обнулить маржин у заголовка? потому что прописан html box-sizing: border-box; ?
+получается, чтобы прописать общий маржин у этого блока, 
+нужно вычесть из него вот этот маржин заголовка? как-то неудобно((*/
+.section-title__m0{
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 40px;
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 40px;
+  margin-top: 0;
+  margin-left: 38%;
+  margin-bottom: 85px;
+  letter-spacing: 2px;
+}
+
+.section-lead {
+  color: #b8adc8;
+}
+
+#about .container {
+  display: flex;
+}
+
+.about-dog-img {
+  border-radius: 10px;
+  background-color: #403e2f;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/*из-за того, что паддинг и маржин у списка считается не от точки, а от текста, 
+приходится ставить маржин не 20 (как в макете от точки), а 44 (как в макете от текста), 
+чтобы выглядело похоже. Правильно ли это?*/
+.advantages-wrapper{
+  margin-left: 44px;
+}
+
+.advantages-list {
+  padding-left: 0;
+}
+
+.advantages-item {
+  /*padding-left: 5px;*/
+  line-height: 40px;
+}
+
+.link-active {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  color: #ffec00;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.link-active:after {
+  content:"";
+  /*display: inline-block;*/
+  position: absolute;
+  background-image: url(../images/arrow-next.svg);
+  top: 0;
+  bottom: 0;
+  vertical-align: middle;
+  right: -40px;
+  width: 20px;
+  height: 14px;
+}
+
+.link-active:hover {
+  color: #b8adc8;
+}
+
+
+/*------ блок породы -------*/
+
+#pets {
+  margin: 220px 40px 120px 40px;
+}
+
+#pets .container {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.pets-row {
+  margin: 0 0 90px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pets-row:last-child {
+  margin-bottom: 0;
+}
+
+
+.pets-item-column {
+  width: 48.5%;
+}
+
+.pets-item-column:first-child {
+  margin-right: 20px;
+}
+
+.pets-item-subtitle {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-size: 24px;
+  line-height: 42px;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.pets-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.pets-item {
+  display: flex;
+  /*display: inline-block;
+  vertical-align: top;*/
+  box-sizing: border-box;
+}
+
+.pets-text-wrapper {
+  color: #737274;
+}
+
+.link-active__c {
+  padding: 10px 0;
+  color: #510fad;
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.link-active__c:after {
+  content:"";
+  /*display: inline-block;*/
+  position: absolute;
+  background-image: url(../images/arrow_next__purple.svg);
+  top: 10px;
+  vertical-align: middle;
+  right: -40px;
+  width: 20px;
+  height: 14px;
+}
+
+.link-active__c:hover {
+  color: #737274;
+}
+
+.pets-text-wrapper .link-active__c {
+  text-transform: uppercase;
+}
+
+
+/*------- блок отзывы -------*/
+
+#feedback {
+  margin: 0 40px 90px 40px;
+}
+
+#feedback .container {
+  display: flex;
+}
+
+.quote-wrapper {
+  margin-right: 20px;
+}
+
+blockquote {
+  margin: 23px 20px auto 0;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.quote:before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 0;
+  /*right: 0;*/
+  width: 80px;
+  height: 65px;
+  background-image: url(../images/quote.svg);
+}
+
+.sign {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-size: 24px;
+  line-height: 42px;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.quote-image-wrapper {
+  width: 50%;
+  /*display: inline-block;*/
+  /*vertical-align: top;*/
+}
+
+.quote-image {
+  margin: 0;
+  color: #737274;
+  font-style: italic;
+  /*display: inline-block;*/
+  /*vertical-align: top;*/
+}
+
+.quote-image img {
+  border-radius: 10px; 
+  box-shadow: -6px 0 40px rgba(0, 0, 0, 0.4);
+  /*width: 100%;*/
+}
+
+time {
+  margin: 0;
+  color: #737274;
+  font-style: italic;
+}
+
+
+
+/*--------- блок Все о животных --------*/
+
+#blog {
+  background-color: #510fad;
+  background-image: url(../images/blog_pattern.jpg);
+  color: #b8adc8;
+  padding: 120px 40px;
+  margin: 100px 0;
+  display: flex;
+  align-items: center;
+}
+
+.blog-text-wrapper .section-title {
+  color: #fff;
+  margin: 0 20px 40px 0;
+}
+
+.blog-text-wrapper {
+  margin-right: 20px;
+}
+
+.blog-list {
+  display: flex;
+}
+
+.blog-item {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: -6px 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.blog-item:hover {
+  box-shadow: -6px 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.blog-item:first-child {
+  margin-right: 20px;
+}
+
+.post-item-img {
+  border-radius: 10px 10px 0 0;
+  width: 220px;
+  height: 160px;
+}
+
+.item-caption {
+  padding: 30px 10px 20px 10px;
+}
+
+.blog-item-header {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.social-icons-list {
+  margin-top: 50px;
+  padding-left: 0;
+}
+
+.social-icons-list .social-icons-item {
+  display: inline-block;
+}
+
+.icon {
+  background-image: url(../images/icons-all.png);
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.vk-yellow { background-position: 0 0; }
+.vk-yellow:hover { background-position: 78px 0; }
+
+.fb-yellow { background-position: -26px 0; }
+.fb-yellow:hover { background-position: -104px 0; }
+
+.ig-yellow { background-position: -52px 0; }
+.ig-yellow:hover { background-position: -130px 0; }
+
+
+/*-------- блок Контакты --------*/
+
+#contacts {
+  margin: 0 40px 120px 40px;
+}
+
+#contacts .container {
+  display: flex;
+  /*margin: 0 40px;*/
+  flex-wrap: wrap;
+}
+
+#contacts .section-title {
+  margin: 0 auto 40px 0;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contacts-item {
+  width: 48%;
+  margin-bottom: 30px;
+}
+
+.contacts-item:nth-child(2n+1) {
+  margin-right: 20px;
+}
+
+.contacts-title {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #727173;
+  letter-spacing: 1px;
+
+  margin: 0 auto 0 0;
+}
+
+.contacts-item .tel{
+  padding-left: 0;
+}
+
+.contacts-item__bl {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-text {
+  margin: 0;
+}
+
+/*------- Футер -------*/
+
+footer .container {
+  margin: 0 40px 90px 40px;
+  border-top: 2px solid #d5d1ca;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.menu-list {
+  margin: 0;
+}
+
+footer .social-icons-list {
+  margin-top: auto;
+}
+
+.vk { background-position: 0 -26px;  }
+.vk:hover { background-position: -78px -26px; }
+
+.fb { background-position: -26px -78px;  }
+.fb:hover { background-position: -104px -26px; }
+
+.ig { background-position: -52px -78px;  }
+.ig:hover { background-position: -130px -26px;  }
+
+/*footer .social-icons-list {
+ text-align: right;
+}*/
+/*a #contacts {
+  padding-left: 0;
+}*/
+
+
